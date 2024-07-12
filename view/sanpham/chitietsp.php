@@ -174,7 +174,7 @@ td {
                                        
 
                                           
-                                        <?php foreach($binhluan as $value): ?>
+                                        <!-- <?php foreach($binhluan as $value): ?>
                                                    
                                             <div class="reviews__comment--list d-flex">
                                                 <div class="reviews__comment--thumb">
@@ -194,7 +194,7 @@ td {
                                                 </div>
                                             </div>
                                          
-                                            <?php endforeach; ?>
+                                            <?php endforeach; ?> -->
 
                                         </div>
                                         <div id="writereview" class="reviews__comment--reply__area">

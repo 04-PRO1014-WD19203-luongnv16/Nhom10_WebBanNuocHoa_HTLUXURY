@@ -86,6 +86,16 @@ if(isset($_GET['act'])){
                 $listdanhmuc = loadall_danhmuc();
                 include "sanpham/list.php";
                 break;
+
+             case "xoasp":
+                    if(isset($_GET['id'])&&($_GET['id']>0)){
+                        delete_sanpham($_GET['id']);
+    
+                    }
+                    $listsanpham = loadall_sanpham("",0);
+                    include "sanpham/list.php";
+                    break;
+    
 //Danh muc====================
     //      case 'listdm':
     //             include "danhmuc/list.php";
