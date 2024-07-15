@@ -1,7 +1,7 @@
 
 
 
-        <div class="col-xxl">
+<div class="col-xxl">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
               <h5 class="mb-0">THÊM MỚI SẢN PHẨM</h5>
@@ -84,7 +84,6 @@
                   <div class="row mb10 " >
                   <div style="display:flex">
                     <div style="margin-right:10px"> <input class="mr20" type="submit" name="themmoi" value="THÊM MỚI SẢN PHẨM"style=" height:36px;background: #f29dab; color: white; border: 0.5px pink; margin-top: 10px "></div>
-                    <div><input class="mr20" type="reset" value="NHẬP LẠI"style=" height:36px;background: #f29dab; color: white; border: 0.5px pink; margin-top: 10px "></div>
 
                   </div>
 

@@ -12,16 +12,7 @@
                         <input  type="submit" name="clickOK" value="Tìm" style=" height:36px;background: #f29dab; color: white; border: 0.5px pink">
                     </div>
                   </div>
-                  <select class="form-control border-0 shadow-none bg-body" name="iddm" id="" style="width: 300px ;height:36px; ">
-                      <option value="0" selected >Tất cả</option>
-                      <?php
-                          foreach ($listdanhmuc as $danhmuc){
-                              extract($danhmuc);
-                              echo'<option value="'.$id.'">'.$name.'</option>';
-                          }
-                      ?>
-                  </select>
-                    <input  type="submit" name="clickOK" value="GO" style=" height:36px;background: #f29dab; color: white; border: 0.5px pink">
+                 
               </form>
               <table class="table">
                 <thead class="table-dark">

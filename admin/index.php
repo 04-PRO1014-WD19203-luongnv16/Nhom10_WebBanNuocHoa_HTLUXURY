@@ -16,14 +16,14 @@ if(isset($_GET['act'])){
         case "listsp":
             if(isset($_POST['clickOK'])&&($_POST['clickOK'])){
                 $keyw=$_POST['keyw'];
-                $iddm=$_POST['iddm'];
+               
 
             }else{
                 $keyw="";
-                $iddm=0;
+                
             }
-            $listdanhmuc= loadall_danhmuc();
-            $listsanpham = loadall_sanpham($keyw, $iddm);
+           
+            $listsanpham = loadall_sanpham($keyw);
             include "sanpham/list.php";
             break;
         case "addsp":
@@ -97,27 +97,63 @@ if(isset($_GET['act'])){
                     break;
     
 //Danh muc====================
-    //      case 'listdm':
-    //             include "danhmuc/list.php";
-    //             break;
-    //      case 'adddm':
-    //         if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-        
-                
-    //             $tenloai = $_POST['tenloai'];
-    //             $sql = "insert into danhmuc(name) values('$tenloai')";
-    //             pdo_execute($sql);
-    //             $thongbao="Them thanh cong";
-    //         }
-    //         include "danhmuc/add.php";
-    //         break;
-    //     case 'editdm':
-    //             include "danhmuc/edit.php";
-    //             break;
-    //     case 'deletedm':
-    //             include "danhmuc/delete.php";
-    //             break;        
-       
+case "adddm":
+    $errtenloai="";
+    $tenloai="";
+    //kiểm tra xem người dùng có click vào nút add hay không
+    if(isset($_POST['themmoi'])&&($_POST['themmoi'])){ //kiểm tra xem nó có tồn tại hay k và có click vào hay k
+        $tenloai=$_POST['tenloai']; //lấy tên loại về và insert vào database
+        if(empty($_POST['tenloai']))
+        {
+            $errtenloai="Bạn chưa nhập tên loại";
+        }
+        if($errtenloai==""){
+            $sql="insert into danhmuc(name) values('$tenloai')";//câu lệnh sql
+            pdo_execute($sql);//thực thi câu lệnh
+            $thongbao="Thêm thành công";
+
+        }
+    }
+    include "danhmuc/add.php";
+    break;  
+case "listdm":
+    $sql="select * from danhmuc order by id desc";
+    $listdanhmuc=pdo_query($sql); //gán cho 1 giá trị nào đó
+    include "danhmuc/list.php";
+    break;  
+case "xoadm":
+    if(isset($_GET['id'])&&($_GET['id']>0)){
+        $sql="delete from danhmuc where id=".$_GET['id'];
+        pdo_execute($sql);
+    }
+    $sql="select * from danhmuc order by id desc";
+    $listdanhmuc=pdo_query($sql);
+    include "danhmuc/list.php";
+    break;  
+case "suadm":
+    if(isset($_GET['id'])&&($_GET['id']>0)){
+        $sql="select * from danhmuc where id=".$_GET['id'];
+        $dm=pdo_query_one($sql);
+    }
+ 
+    include "danhmuc/update.php";
+    break; 
+case "updatedm":
+    
+    if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+        $tenloai=$_POST['tenloai'];
+        $id=$_POST['id'];
+
+        $sql="update danhmuc set name='".$tenloai."' where id=".$id;
+        pdo_execute($sql);
+        $thongbao="Thêm thành công";
+    }
+
+    $sql="select * from danhmuc order by id desc";
+    $listdanhmuc=pdo_query($sql);
+    include "danhmuc/list.php";
+    break;   
+
 
     //     default:
     //     include "home.php";

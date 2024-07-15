@@ -102,7 +102,6 @@
                   <input type="hidden" name="id" value="<?=$id?>">
 
                     <div style="margin-right:10px"> <input class="mr20" type="submit" name="capnhat" value="CẬP NHẬT"style=" height:36px;background: #f29dab; color: white; border: 0.5px pink; margin-top: 10px "></div>
-                    <div><input class="mr20" type="reset" value="NHẬP LẠI"style=" height:36px;background: #f29dab; color: white; border: 0.5px pink; margin-top: 10px "></div>
 
                   </div>
 
